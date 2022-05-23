@@ -24,8 +24,8 @@ git clone https://github.com/Darkelposho/SD-Tarea2.git
     Debido a que kafka es un sistema diseñado en el envio de mensaje en tiempo real. Lo cua es util para determinar si un usuario debe ser bloqueado.
 - __Basado en las tecnologías que usted tiene a su disposición  (Kafka, backend) ¿Qué haría usted para manejar una gran cantidad de usuarios al mismo tiempo?__<br />
     Lo principal seria tener multiples api que se comunicen con varios topicos para que asi no se colapse el sistema, y cada persona pueda comunicar se efectivamente. 
-----
+---
 **Caso Particular**
-----
+---
 Si el consumidor no se conecta o enciende se tiene que abrir el siguiente enlace `localhost:8000`, luego solo hay que pedir una solicitud POST en el login y listo.
-----
+---
