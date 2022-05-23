@@ -7,7 +7,8 @@ git clone https://github.com/Darkelposho/SD-Tarea2.git
 2. Escribir en la terminal ```Docker-compose up```
 3. Abrir Postman o algun software diseñado en consultas API.
 4. Usar la dirección `localhost:3000/login`
-5. Escribir una consulta post con variable usario y contraseña.  
+5. Escribir una consulta post con variable usario y contraseña.
+(Ejemplo)  
 ```bash
 {
     "username":"Juan",
