@@ -1,11 +1,11 @@
+//Se importan las librerias necesarias
 const express = require('express')
 const cors = require('cors')
-const dotenv = require('dotenv')
 const bodyParser = require('body-parser')
 const { Kafka } = require("kafkajs");
 
+//Se crea las instancias
 const app = express()
-dotenv.config()
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -15,7 +15,6 @@ app.use(cors())
 var port = process.env.PORT || 8000;
 var host = process.env.PORT || '0.0.0.0';
 var dict = new Object();
-//lista de usuarios bloqueados
 var bloq = new Object();
 
 var kafka = new Kafka({
@@ -25,16 +24,18 @@ var kafka = new Kafka({
 const topic = "topic-test";
 const consumer = kafka.consumer({ groupId: "test-group" });
 
+//Se llama al main
 app.get("/", (req, res) => {
   res.send("Mira es más puto!!");
   main();
 });
 
+
 app.get('/blocked', (req, res) => {
     //enviar las llaves de la lista de bloqueados
     res.send(Object.keys(bloq));
   })
-  
+  //Se crea el consumer
   const main  = async () => {
     console.log("Entra main")
     await consumer.connect();
@@ -68,8 +69,8 @@ app.get('/blocked', (req, res) => {
     })
   };
   
-  /* PORTS */
-  
+
+  //Se crea el puerto
   app.listen(port,host,()=>{
       console.log(`API-Blocked run in: http://localhost:${port}.`)
   });

@@ -1,11 +1,11 @@
+//Se importan las librerias necesarias
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const { Kafka } = require("kafkajs");
 
+//Se crea las instancias
 const app = express();
-dotenv.config();
 app.use(
     bodyParser.urlencoded({
       extended: true,
@@ -21,7 +21,7 @@ var kafka = new Kafka({
     clientId: "my-app",
     brokers: ["kafka:9092"],
   });
-
+//Se crea el producer
   app.post("/login", (req, res) => {
     console.log("login");
     (async () => {
@@ -37,11 +37,9 @@ var kafka = new Kafka({
         }
         await producer.send({
           topic,
-          //value: JSON.stringify(user)
           messages: [{ value: JSON.stringify(user) }],
         })
         await producer.disconnect();
-        //await admin.disconnect();
         res.send(user);
     })();
   });
@@ -51,6 +49,7 @@ var kafka = new Kafka({
     res.send("Mira es un puto!!");
   });
 
+  //Se crea el puerto
   app.listen(port,host, () => {
     console.log(`API run in: http://localhost:${port}.`);
   });
