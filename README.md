@@ -1,6 +1,6 @@
 ﻿# SD-Tarea2
 # Instrucciones de uso
-1. Descargar e instalar Archivos del github usnado el siguiente comando:
+1. Descargar e instalar archivos del repositorio usando el siguiente comando:
 ```bash
 git clone https://github.com/Darkelposho/SD-Tarea2.git
 ```
