@@ -27,7 +27,7 @@ const consumer = kafka.consumer({ groupId: "test-group" });
 //Se llama al main
 app.get("/", (req, res) => {
   res.send("Mira es más puto!!");
-  main();
+  run();
 });
 
 
@@ -36,7 +36,7 @@ app.get('/blocked', (req, res) => {
     res.send(Object.keys(bloq));
   })
   //Se crea el consumer
-  const main  = async () => {
+  const run  = async () => {
     console.log("Entra main")
     await consumer.connect();
     await consumer.subscribe({ topic, fromBeginning: true });
