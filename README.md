@@ -28,4 +28,4 @@ git clone https://github.com/Darkelposho/SD-Tarea2.git
 **Caso Particular**
 ---
 Si el consumidor no se conecta o enciende se tiene que abrir el siguiente enlace `localhost:8000`, luego solo hay que pedir una solicitud POST en el login y listo.
----
+
